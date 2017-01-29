@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.myapplication2.MainActivity">
+
+    <Button
+        android:text="show grants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/showButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/publishButton"
+        android:layout_marginBottom="89dp" />
+
+    <Button
+        android:text="опубликовать"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/publishButton"
+        android:layout_above="@+id/showButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp" />
+
+    <TextView
+        android:text="Введите название гранта"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/textViewName"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/grantName"
+        android:layout_below="@+id/textViewName"
+        android:layout_alignStart="@+id/textViewName"
+        android:layout_marginTop="13dp"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Введите описание текста"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/grantName"
+        android:layout_alignStart="@+id/grantName"
+        android:layout_marginTop="15dp"
+        android:id="@+id/textViewD"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/grantDescription"
+        android:layout_below="@+id/textViewD"
+        android:layout_alignStart="@+id/textViewD" />
+
+    <TextView
+        android:text="Введите дату"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/grantData"
+        android:layout_alignStart="@+id/grantDescription"
+        android:layout_marginBottom="18dp"
+        android:id="@+id/textViewData"
+        android:layout_alignEnd="@+id/showButton"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/grantData"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/textViewData" />
+
+</RelativeLayout>
