@@ -98,4 +98,14 @@
         android:layout_marginBottom="42dp"
         android:id="@+id/seekBar" />
 
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/seekBar"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="28dp"
+        android:id="@+id/button2" />
+
 </RelativeLayout>
