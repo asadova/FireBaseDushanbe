@@ -90,4 +90,12 @@
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/textViewData" />
 
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/showButton"
+        android:layout_marginBottom="42dp"
+        android:id="@+id/seekBar" />
+
 </RelativeLayout>
