@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //создали грант как объект
                 Grant grant = new Grant(grantName.getText().toString(),
-                                        grantDescription.getText().toString(),
-                                        grantData.getText().toString());
+                        grantDescription.getText().toString(),
+                        grantData.getText().toString());
                 //чтобы публиковать в базу
                 grantsReference.push().setValue(grant);  //push создаёт id
 
