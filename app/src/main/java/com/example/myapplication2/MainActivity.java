@@ -6,11 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,10 +20,11 @@ public class MainActivity extends AppCompatActivity {
     //Interface variables
     private EditText grantName;
     private EditText grantDescription;
-    private EditText grantData;
+    private EditText deadline;
+    private EditText tag;
+    private EditText place;
     private Button publishButton;
     private Button showButton;
-    private TextView grantsText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +40,11 @@ public class MainActivity extends AppCompatActivity {
         //Initialize Interface
         grantName = (EditText)findViewById(R.id.grantName);
         grantDescription = (EditText)findViewById(R.id.grantDescription);
-        grantData = (EditText)findViewById(R.id.grantData);
+        deadline = (EditText)findViewById(R.id.grantDeadline);
+        tag = (EditText)findViewById(R.id.tagEditText);
+        place = (EditText)findViewById(R.id.placeEditText);
         publishButton = (Button)findViewById(R.id.publishButton);
         showButton = (Button)findViewById(R.id.showButton);
-     //   grantsText = (TextView)findViewById(R.id.grantsText);
 
         //кнопка не доступна
      /*   publishButton.setEnabled(false);
@@ -62,10 +61,20 @@ public class MainActivity extends AppCompatActivity {
                 //создали грант как объект
                 Grant grant = new Grant(grantName.getText().toString(),
                         grantDescription.getText().toString(),
-                        grantData.getText().toString());
+                        deadline.getText().toString(),
+                        tag.getText().toString(),
+                        place.getText().toString());
+
+
                 //чтобы публиковать в базу
                 grantsReference.push().setValue(grant);  //push создаёт id
-
+                grantName.setText("");
+                grantDescription.setText("");
+                deadline.setText("");
+                tag.setText("");
+                place.setText("");
+                //оповещение, что грант опубликован
+                Toast.makeText(getApplicationContext(), "Грант опубликован", Toast.LENGTH_LONG).show();
             }
         });
 

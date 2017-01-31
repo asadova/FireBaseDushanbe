@@ -8,19 +8,22 @@ public class Grant {
     //свойства
     private String grantName;
     private String grantDescription;
-    private String grantData;
-    private String nechto = "gagaga";
+    private String deadline;
+    private String tag;
+    private String place;
 
     //конструктор для Firebase
-    public Grant() {
-    }
+    public Grant() {    }
 
     //конструктор
-    public Grant(String grantName, String grantDescription, String grantData) {
+    public Grant(String grantName, String grantDescription, String deadline, String tag, String place) {
         this.grantName = grantName;
         this.grantDescription = grantDescription;
-        this.grantData = grantData;
+        this.deadline = deadline;
+        this.tag = tag;
+        this.place = place;
     }
+
 
     public String getGrantName() {
         return grantName;
@@ -38,19 +41,23 @@ public class Grant {
         this.grantDescription = grantDescription;
     }
 
-    public String getGrantData() {
-        return grantData;
+    public String getDeadline() { return deadline;  }
+
+    public void setDeadline(String deadline) { this.deadline = deadline;  }
+
+    public String getTag() {
+        return tag;
     }
 
-    public void setGrantData(String grantData) {
-        this.grantData = grantData;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
-    public String getNechto() {
-        return nechto;
+    public String getPlace() {
+        return place;
     }
 
-    public void setNechto(String nechto) {
-        this.nechto = nechto;
+    public void setPlace(String place) {
+        this.place = place;
     }
 }

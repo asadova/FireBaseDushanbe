@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -14,22 +16,31 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class grantsTable extends AppCompatActivity {
 
     private FirebaseDatabase grantsDB;
     private DatabaseReference grantsReference;
 
-    private TextView tableTView;
     private Button goToPubButton;
+    private ListView grantsListView;
+    GrantsListAdapter grantsListAdapter;
+    ArrayList<Grant> grantItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grants_table_layout);
 
+        //Initialize arrayList
+        grantItems = new ArrayList<>();
+
         //Initialize Interface
         goToPubButton = (Button)findViewById(R.id.goBackButton);
-        tableTView = (TextView)findViewById(R.id.tableTView);
+        grantsListView = (ListView)findViewById(R.id.grantsListView);
+        grantsListAdapter = new GrantsListAdapter(this, grantItems);
+        grantsListView.setAdapter(grantsListAdapter);
 
         grantsDB = FirebaseDatabase.getInstance();
         grantsReference = grantsDB.getReference().child("grants");
@@ -49,9 +60,7 @@ public class grantsTable extends AppCompatActivity {
                 Grant grant = dataSnapshot.getValue(Grant.class);
                 // append добавляет к тексту
                 // set меняет текст
-                tableTView.append(grant.getGrantName() + "\n");
-                tableTView.append(grant.getGrantDescription() + "\n");
-                tableTView.append(grant.getGrantData() + "\n\n\n");
+                grantsListAdapter.add(grant);
             }
 
             @Override

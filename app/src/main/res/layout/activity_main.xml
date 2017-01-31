@@ -10,24 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.myapplication2.MainActivity">
 
-    <Button
-        android:text="show grants"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/showButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/publishButton"
-        android:layout_marginBottom="89dp" />
-
-    <Button
-        android:text="опубликовать"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/publishButton"
-        android:layout_above="@+id/showButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp" />
-
     <TextView
         android:text="Введите название гранта"
         android:layout_width="wrap_content"
@@ -74,7 +56,7 @@
         android:text="Введите дату"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/grantData"
+        android:layout_above="@+id/grantDeadline"
         android:layout_alignStart="@+id/grantDescription"
         android:layout_marginBottom="18dp"
         android:id="@+id/textViewData"
@@ -86,58 +68,64 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/grantData"
+        android:id="@+id/grantDeadline"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/textViewData" />
 
-    <SeekBar
+    <TextView
+        android:text="введите tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/showButton"
-        android:layout_marginBottom="42dp"
-        android:id="@+id/seekBar" />
+        android:id="@+id/tagTextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/grantDeadline"
+        android:layout_alignStart="@+id/grantDeadline"
+        android:layout_marginTop="11dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tagEditText"
+        android:layout_below="@+id/tagTextView"
+        android:layout_alignStart="@+id/tagTextView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/placeEditText"
+        android:layout_above="@+id/showButton"
+        android:layout_alignStart="@+id/tagEditText" />
 
     <Button
-        android:text="Button"
+        android:text="опубликовать"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/publishButton"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/seekBar"
-        android:layout_marginStart="26dp"
-        android:layout_marginBottom="28dp"
-        android:id="@+id/button2" />
+        android:layout_alignStart="@+id/placeEditText" />
 
-    <SeekBar
+    <Button
+        android:text="show grants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/publishButton"
-        android:layout_toEndOf="@+id/button2"
-        android:layout_marginBottom="13dp"
-        android:id="@+id/seekBar2" />
+        android:id="@+id/showButton"
+        android:layout_marginEnd="11dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 
-    <SeekBar
+    <TextView
+        android:text="Введите место"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/showButton"
-        android:layout_toEndOf="@+id/button2"
-        android:layout_marginStart="13dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/seekBar3" />
-
-    <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/publishButton"
-        android:layout_alignStart="@+id/grantData"
-        android:layout_marginStart="12dp"
-        android:id="@+id/seekBar4" />
-
-    <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/publishButton"
-        android:layout_alignStart="@+id/seekBar4"
-        android:id="@+id/seekBar5" />
+        android:id="@+id/placeTextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/tagEditText"
+        android:layout_alignStart="@+id/tagEditText"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>
