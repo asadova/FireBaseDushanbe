@@ -43,7 +43,7 @@ public class grantsTable extends AppCompatActivity {
         //Initialize Interface
         goToPubButton = (Button)findViewById(R.id.goBackButton);
         grantsListView = (ListView)findViewById(R.id.grantsListView);
-        grantsListAdapter = new GrantsListAdapter(this, grantItems);
+        grantsListAdapter = new GrantsListAdapter(this);
         grantsListView.setAdapter(grantsListAdapter);
 
 

@@ -16,11 +16,11 @@ import java.util.ArrayList;
  */
 
 public class GrantsListAdapter extends BaseAdapter {
-    private ArrayList<Grant> grantsListData;
+    private ArrayList<Grant> grantsListData;  //содержит все данные об объектах
     private LayoutInflater layoutInflater;   //берет наш дизайн и применяет внутри listView
 
-    public GrantsListAdapter(Context aContext, ArrayList<Grant> listData) {
-        this.grantsListData = listData;
+    public GrantsListAdapter(Context aContext) {
+        this.grantsListData = new ArrayList<>();   //новый пустой список
         layoutInflater = LayoutInflater.from(aContext);
     }
 
