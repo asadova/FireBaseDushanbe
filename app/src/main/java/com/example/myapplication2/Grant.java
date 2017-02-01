@@ -11,6 +11,7 @@ public class Grant {
     private String deadline;
     private String tag;
     private String place;
+    private String id;
 
     //конструктор для Firebase
     public Grant() {    }
@@ -28,7 +29,6 @@ public class Grant {
     public String getGrantName() {
         return grantName;
     }
-
     public void setGrantName(String grantName) {
         this.grantName = grantName;
     }
@@ -36,19 +36,14 @@ public class Grant {
     public String getGrantDescription() {
         return grantDescription;
     }
-
-    public void setGrantDescription(String grantDescription) {
-        this.grantDescription = grantDescription;
-    }
+    public void setGrantDescription(String grantDescription) { this.grantDescription = grantDescription; }
 
     public String getDeadline() { return deadline;  }
-
     public void setDeadline(String deadline) { this.deadline = deadline;  }
 
     public String getTag() {
         return tag;
     }
-
     public void setTag(String tag) {
         this.tag = tag;
     }
@@ -56,8 +51,10 @@ public class Grant {
     public String getPlace() {
         return place;
     }
-
     public void setPlace(String place) {
         this.place = place;
     }
+
+    public String getId() {return id;  }
+    public void setId(String id) {  this.id = id; }
 }

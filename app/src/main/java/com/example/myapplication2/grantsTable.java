@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,9 @@ public class grantsTable extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grants_table_layout);
 
+        grantsDB = FirebaseDatabase.getInstance();
+        grantsReference = grantsDB.getReference().child("grants");
+
         //Initialize arrayList
         grantItems = new ArrayList<>();
 
@@ -42,8 +46,6 @@ public class grantsTable extends AppCompatActivity {
         grantsListAdapter = new GrantsListAdapter(this, grantItems);
         grantsListView.setAdapter(grantsListAdapter);
 
-        grantsDB = FirebaseDatabase.getInstance();
-        grantsReference = grantsDB.getReference().child("grants");
 
         //кнопка пойти назад
         goToPubButton.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +60,7 @@ public class grantsTable extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Grant grant = dataSnapshot.getValue(Grant.class);
+                grant.setId(dataSnapshot.getKey());
                 // append добавляет к тексту
                 // set меняет текст
                 grantsListAdapter.add(grant);
@@ -84,11 +87,23 @@ public class grantsTable extends AppCompatActivity {
             }
         });
 
+        grantsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Grant grant = (Grant) grantsListAdapter.getItem(position);
+                Intent intent = new Intent(grantsTable.this, GrantActivity.class);
+                intent.putExtra("grantId", grant.getId());
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private void goToPublish(){
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
+
+

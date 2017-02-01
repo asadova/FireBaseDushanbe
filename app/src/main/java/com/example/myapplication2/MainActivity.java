@@ -46,14 +46,6 @@ public class MainActivity extends AppCompatActivity {
         publishButton = (Button)findViewById(R.id.publishButton);
         showButton = (Button)findViewById(R.id.showButton);
 
-        //кнопка не доступна
-     /*   publishButton.setEnabled(false);
-
-        publishButton.setEnabled(true) {
-            if (grantName.getText().toString().equals(""));
-        }
-
-        */
         //вести данные и опубликовать
         publishButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,9 +57,10 @@ public class MainActivity extends AppCompatActivity {
                         tag.getText().toString(),
                         place.getText().toString());
 
-
                 //чтобы публиковать в базу
                 grantsReference.push().setValue(grant);  //push создаёт id
+
+                //после публикации поля очищаются
                 grantName.setText("");
                 grantDescription.setText("");
                 deadline.setText("");
@@ -84,44 +77,12 @@ public class MainActivity extends AppCompatActivity {
                 showGrants();
             }
         });
-  /*      //чтобы новый грант выводился на экран
-        grantsReference.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Grant grant = dataSnapshot.getValue(Grant.class);
-                // append добавляет к тексту
-                // set меняет текст
-                grantsText.append(grant.getGrantName() + "\n");
-                grantsText.append(grant.getGrantDescription() + "\n");
-                grantsText.append(grant.getGrantData() + "\n\n\n");
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });   */
-
     }
 
 
     private void showGrants(){
         Intent intent = new Intent(this, grantsTable.class);
         startActivity(intent);
+
     }
 }
