@@ -25,9 +25,9 @@ public class grantsTable extends AppCompatActivity {
     private DatabaseReference grantsReference;
 
     private Button goToPubButton;
+
     private ListView grantsListView;
     GrantsListAdapter grantsListAdapter;
-    ArrayList<Grant> grantItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,6 @@ public class grantsTable extends AppCompatActivity {
 
         grantsDB = FirebaseDatabase.getInstance();
         grantsReference = grantsDB.getReference().child("grants");
-
-        //Initialize arrayList
-        grantItems = new ArrayList<>();
 
         //Initialize Interface
         goToPubButton = (Button)findViewById(R.id.goBackButton);
