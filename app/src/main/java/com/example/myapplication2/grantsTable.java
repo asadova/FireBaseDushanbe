@@ -5,11 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -17,9 +14,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
-public class grantsTable extends AppCompatActivity {
+public class GrantsTable extends AppCompatActivity {
 
     private FirebaseDatabase grantsDB;
     private DatabaseReference grantsReference;
@@ -88,7 +83,7 @@ public class grantsTable extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Grant grant = (Grant) grantsListAdapter.getItem(position);
-                Intent intent = new Intent(grantsTable.this, GrantActivity.class);
+                Intent intent = new Intent(GrantsTable.this, GrantActivity.class);
                 intent.putExtra("grantId", grant.getId());
                 startActivity(intent);
             }

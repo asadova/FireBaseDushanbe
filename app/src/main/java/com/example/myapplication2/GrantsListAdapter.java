@@ -60,9 +60,10 @@ public class GrantsListAdapter extends BaseAdapter {
         holder.grantPlace.setText(grantsListData.get(position).getPlace());
         return convertView;   //convertView используется в ListView
     }
-    //метод add (из grantsTable.java)
+    //метод add (из GrantsTable.java)
     public void add(Grant grant) {
         grantsListData.add(grant);
+        notifyDataSetChanged();   //обновить данные списка (в ListView)
     }
 
     //помогает нам всё организовать  (можно и не писать)

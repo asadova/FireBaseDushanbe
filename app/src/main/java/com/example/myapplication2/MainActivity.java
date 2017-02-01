@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void showGrants(){
-        Intent intent = new Intent(this, grantsTable.class);
+        Intent intent = new Intent(this, GrantsTable.class);
         startActivity(intent);
 
     }
