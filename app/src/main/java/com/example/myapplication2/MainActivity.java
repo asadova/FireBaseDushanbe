@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase grantsDB;
     private DatabaseReference grantsReference;
 
+
     //Interface variables
     private EditText grantName;
     private EditText grantDescription;
